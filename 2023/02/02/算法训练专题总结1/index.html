@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="算法训练专题总结 | 数组"/><meta name="keywords" content="算法专题总结, zhao可行's blog" /><link rel="alternate" href="/default" title="zhao可行's blog" ><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.1" />
+<meta name="description" content="CMU15-445/645：Lecture#1-2"/><meta name="keywords" content="CMU15-445/645, zhao可行's blog" /><link rel="alternate" href="/default" title="zhao可行's blog" ><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.1" />
 <link rel="canonical" href="http://example.com/2023/02/02/算法训练专题总结1/"/>
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
@@ -23,7 +23,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
 </script>
 
-    <title>算法训练专题总结 | 数组 - zhao可行's blog</title>
+    <title>CMU15-445/645：Lecture#1-2 - zhao可行's blog</title>
   <meta name="generator" content="Hexo 5.4.2"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -92,28 +92,123 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">算法训练专题总结 | 数组
+      <h1 class="post-title">CMU15-445/645：Lecture#1-2
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
           2023-02-02
         </span><span class="post-category">
-            <a href="/categories/leetcode/">leetcode</a>
+            <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/">课程学习</a>
             </span>
         </div>
     </header>
 
-    <div class="post-content"><blockquote>
-<p>数组</p>
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Databases-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">Databases 数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Database-Management-System-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="toc-text">Database Management System 数据库管理系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Relational-Model-%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B"><span class="toc-text">Relational Model 关系模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Manipulation-Languages-DMLs-%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C%E8%AF%AD%E8%A8%80"><span class="toc-text">Data Manipulation Languages (DMLs) 数据操作语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Relational-Algebra-%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0"><span class="toc-text">Relational Algebra 关系代数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#select"><span class="toc-text">select</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Projection"><span class="toc-text">Projection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Union"><span class="toc-text">Union</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Intersection"><span class="toc-text">Intersection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Difference"><span class="toc-text">Difference</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Product"><span class="toc-text">Product</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Join"><span class="toc-text">Join</span></a></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><blockquote>
+<p>本文记录了CMU15-445/645 Lecture1-2的课堂笔记</p>
 </blockquote>
 <span id="more"></span>
+
+<h2 id="Databases-数据库"><a href="#Databases-数据库" class="headerlink" title="Databases 数据库"></a>Databases 数据库</h2><p>一般情况下，可以在应用程序上实现和管理最简单的数据库，即可以用它来存储数据和一堆用逗号分隔的值文件或CSV文件。</p>
+<p>以数字音乐商店为示例，将有两个文件：一个用于艺术家，另一个用于专辑。艺术家可以具有姓名、年份和国家属性，而专辑具有姓名、艺术家和年份属性。</p>
+<p>假设需要查找“Ice Cube” 的出道年份，通过’Python’方式来实现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">    record = parse(line)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;Ice Cube&quot;</span> == record[<span class="number">0</span>]:</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">int</span>(record[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+
+<p>但是这种方式并不是最好的，存在一些问题。</p>
+<ul>
+<li><p>数据完整性</p>
+<ol>
+<li> 如何确保每个专辑条目的艺术家都是相同的？</li>
+<li>如果有人用无效字符串覆盖专辑年份怎么办？</li>
+<li>如何存储一张专辑中有多个艺术家？</li>
+</ol>
+</li>
+<li><p>实现</p>
+<ol>
+<li>你如何找到一个特定的记录？</li>
+<li>如果我们现在想要创建一个使用相同数据库的新应用程序怎么办？</li>
+<li>如果两个线程同时尝试写入同一个文件怎么办？</li>
+</ol>
+</li>
+<li><p>持久性</p>
+<ol>
+<li>如果在程序更新记录时机器崩溃了怎么办？</li>
+<li>如果想在多台机器上复制数据库以获得高可用性怎么办？</li>
+</ol>
+</li>
+</ul>
+<p>基于以上问题，就出现了数据库管理系统（DBMS）来对数据进行管理操作。</p>
+<p>数据库管理软件是一种专业的软件，允许程序在无须底层实现的情况下，对数据库中的信息进行存储和分析，是一种能够被多种应用所复用的软件。避免重复造轮子的问题。</p>
+<hr>
+<h2 id="Database-Management-System-数据库管理系统"><a href="#Database-Management-System-数据库管理系统" class="headerlink" title="Database Management System 数据库管理系统"></a>Database Management System 数据库管理系统</h2><ul>
+<li><p>DBMS是一种允许应用程序在数据库中存储和分析信息的软件</p>
+</li>
+<li><p>Early DBMSs：因为逻辑层和物理层之间存在紧密耦合，所以数据库应用程序很难构建和维护。其中逻辑层描述数据库具有哪些实体和属性，而物理层描述这些实体和属性的存储方式。早期，物理层是在应用程序代码中定义的，所以如果我们想更改应用程序使用的物理层，我们必须更改所有代码以匹配新的物理层。</p>
+</li>
+</ul>
+<hr>
+<h2 id="Relational-Model-关系模型"><a href="#Relational-Model-关系模型" class="headerlink" title="Relational Model 关系模型"></a>Relational Model 关系模型</h2><ul>
+<li><p>数据模型：描述数据库中数据的概念集合。</p>
+</li>
+<li><p>关系模型：是数据模型的一个示例。</p>
+</li>
+<li><p>模式（schema）: 使用给定数据模型对特定数据集合的描述。</p>
+</li>
+<li><p>关系：数据的一个列，是一个实体的属性之一。关系是一个无序集合，包含表示实体的属性的关系。由于关系是无序的，DBMS可以以任何方式存储它们，从而实现优化。</p>
+</li>
+<li><p>关系型数据模型的三个要素：</p>
+</li>
+</ul>
+<ol>
+<li>关系结构（structure）：关系的定义及其结构的内容。</li>
+<li>完整性（Integrity）：确保数据库的内容满足限制。</li>
+<li>操纵性（manipulation）：如何访问和修改数据库的内容。</li>
+</ol>
+<ul>
+<li><p>主键（Primary Keys）：某一个唯一属性或一个属性组能够唯一标识一条记录。称其属性或属性组为主键。</p>
+</li>
+<li><p>外键（Foreign Keys）：用于指定一张表中的属性必须存在于另一张表中。</p>
+</li>
+</ul>
+<hr>
+<h2 id="Data-Manipulation-Languages-DMLs-数据操作语言"><a href="#Data-Manipulation-Languages-DMLs-数据操作语言" class="headerlink" title="Data Manipulation Languages (DMLs) 数据操作语言"></a>Data Manipulation Languages (DMLs) 数据操作语言</h2><p>从数据库中存储和检索信息的一种语言。这有两类语言：</p>
+<p>1.过程性：查询指定DBMS应用于查找所需结果的（高级）策略。（经典例子：<code>关系代数</code>）</p>
+<p>2.非程序性或声明性：查询只指定需要什么数据，而不指定如何查找数据（经典例子：<code>关系演算</code>）</p>
+<hr>
+<h2 id="Relational-Algebra-关系代数"><a href="#Relational-Algebra-关系代数" class="headerlink" title="Relational Algebra 关系代数"></a>Relational Algebra 关系代数</h2><p>关系代数是检索和处理关系中元组的一组基本操作。每一个操作都接受一个或多个关系作为输入，并输出一个新的关系。</p>
+<h3 id="select"><a href="#select" class="headerlink" title="select"></a>select</h3><p>查询复合条件元组的一个子集。（挑选）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R <span class="keyword">WHERE</span> a_id <span class="operator">=</span> <span class="string">&#x27;a2&#x27;</span> <span class="keyword">AND</span> b_id <span class="operator">&gt;</span> <span class="number">102</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Projection"><a href="#Projection" class="headerlink" title="Projection"></a>Projection</h3><p>生成一个新的输出关系，里面包含一个给定输入关系中的指定属性。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> b_id<span class="number">-100</span>,a_id <span class="keyword">FROM</span> R <span class="keyword">WHERE</span> a_id <span class="operator">=</span> <span class="string">&#x27;a2&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Union"><a href="#Union" class="headerlink" title="Union"></a>Union</h3><p>将两个关系组合成一个新的关系。（<code>并集</code>）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R) <span class="keyword">UNION</span> <span class="keyword">ALL</span> (<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> S);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Intersection"><a href="#Intersection" class="headerlink" title="Intersection"></a>Intersection</h3><p>两个关系表里共同的部分。（<code>交集</code>）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R) <span class="keyword">INTERSECT</span> (<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> S);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Difference"><a href="#Difference" class="headerlink" title="Difference"></a>Difference</h3><p>从第一个元素集中将第二个元素集中出现的元素过滤掉。（<code>差集</code>）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R) <span class="keyword">EXCEPT</span> (<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> S);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Product"><a href="#Product" class="headerlink" title="Product"></a>Product</h3><p><code>笛卡尔积</code>。所有可能性不重复的组合。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> S;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R , S;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Join"><a href="#Join" class="headerlink" title="Join"></a>Join</h3><p>自然链接。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R <span class="keyword">NATURAL</span> <span class="keyword">JOIN</span> S;</span><br></pre></td></tr></table></figure>
+
+<hr>
 
       </div>
       
       <footer class="post-footer">
         <div class="post-tags">
-            <a href="/tags/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%E6%80%BB%E7%BB%93/">算法专题总结</a>
+            <a href="/tags/CMU15-445-645/">CMU15-445/645</a>
             </div>
         
         <nav class="post-nav"><a class="next" href="/2023/02/02/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83Day02/">
