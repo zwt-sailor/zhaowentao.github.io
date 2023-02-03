@@ -107,7 +107,7 @@
     <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="toc-text">数组理论基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Leetcode704-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="toc-text">Leetcode704 二分查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Leetcode27-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-text">Leetcode27 移除元素</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="toc-text">数组理论基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Leetcode704-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="toc-text">Leetcode704 二分查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Leetcode27-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-text">Leetcode27 移除元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%B3%95"><span class="toc-text">二分法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88%E6%B3%95"><span class="toc-text">双指针法</span></a></li></ol>
     </div>
   </div><div class="post-content"><blockquote>
 <p>“二分法（左闭右闭、左闭右开）、双指针法/快慢指针法”</p>
@@ -152,6 +152,23 @@
 <p>3、总结：</p>
 <ul>
 <li>本题目的实质就是实现erase函数O(n)删除（覆盖）元素的一个过程。</li>
+</ul>
+<hr>
+<h2 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h2><ul>
+<li>坚持<strong>循环不变量原则</strong>，只有在循环中坚持对区间的定义，才能清楚的把握循环中的各种细节。</li>
+<li>二分法是算法面试中的常考题！</li>
+</ul>
+<h2 id="双指针法"><a href="#双指针法" class="headerlink" title="双指针法"></a>双指针法</h2><ul>
+<li><p>双指针法（快慢指针法）：<strong>通过一个快指针和慢指针在一个for循环下完成两个for循环的工作。</strong></p>
+</li>
+<li><p>暴力解法时间复杂度：O(n^2)  -&gt; 双指针时间复杂度：O(n)</p>
+</li>
+<li><p>数组中的元素为什么不能删除，主要是因为以下两点：</p>
+<ol>
+<li>数组在内存中是连续的地址空间，不能释放单一元素，如果要释放，就是全释放（程序运行结束，回收内存栈空间）。</li>
+<li>C++中vector和array的区别一定要弄清楚，vector的底层实现是array，封装后使用更友好。</li>
+</ol>
+</li>
 </ul>
 
       </div>
