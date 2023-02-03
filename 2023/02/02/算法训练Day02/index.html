@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="算法训练Day02 | Lc977 、Lc209 、Lc59"/><meta name="keywords" content="算法训练营, zhao小花's blog" /><link rel="alternate" href="/default" title="zhao小花's blog" ><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.1" />
+<meta name="description" content="算法训练Day02 | Lc977 、Lc209 、Lc59"/><meta name="keywords" content="算法训练营, zhao可行's blog" /><link rel="alternate" href="/default" title="zhao可行's blog" ><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.1" />
 <link rel="canonical" href="http://example.com/2023/02/02/算法训练Day02/"/>
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
@@ -23,12 +23,12 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
 </script>
 
-    <title>算法训练Day02 | Lc977 、Lc209 、Lc59 - zhao小花's blog</title>
+    <title>算法训练Day02 | Lc977 、Lc209 、Lc59 - zhao可行's blog</title>
   <meta name="generator" content="Hexo 5.4.2"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/." class="logo">zhao小花's blog</a>
+    <a href="/." class="logo">zhao可行's blog</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -57,7 +57,7 @@
 </nav>
 <div class="container" id="mobile-panel">
       <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">zhao小花's blog</a>
+  <a href="/." class="logo">zhao可行's blog</a>
 </div>
 
 <nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
@@ -107,7 +107,7 @@
     <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Leetcode977-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9"><span class="toc-text">Leetcode977 有序数组的平方</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Leetcode209-%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84"><span class="toc-text">Leetcode209 长度最小的子数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Leetcode59-%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II"><span class="toc-text">Leetcode59 螺旋矩阵II</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Leetcode977-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9"><span class="toc-text">Leetcode977 有序数组的平方</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Leetcode209-%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84"><span class="toc-text">Leetcode209 长度最小的子数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Leetcode59-%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II"><span class="toc-text">Leetcode59 螺旋矩阵II</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3"><span class="toc-text">滑动窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E8%A1%8C%E4%B8%BA"><span class="toc-text">模拟行为</span></a></li></ol>
     </div>
   </div><div class="post-content"><blockquote>
 <p>“双指针法、滑动窗口法、边界条件非常多-循环不变量原则（螺旋矩阵）”</p>
@@ -169,6 +169,15 @@
 <li>（边界条件非常多，坚持左闭右开原则）坚持<strong>循环不变量原则；</strong></li>
 <li>注意模拟转一圈的过程，四个for循环位置不能颠倒；此时的（i，j）即为实时位置，（startx，starty）即为起始位置；</li>
 <li>学习掌握二维数组的定义方法：vector&lt;vector<int>&gt;res(n, vector<int>(n,0));// 使用vector定义一个二维数组。</li>
+</ul>
+<hr>
+<h2 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h2><ul>
+<li>暴力解法时间复杂度：O(n^2)  -&gt; 滑动窗口时间复杂度：O(n)</li>
+<li><strong>滑动窗口的精妙之处在于根据当前子序列和大小的情况，不断调节子序列的起始位置。从而将O(n^2)的暴力解法降为O(n)。</strong></li>
+</ul>
+<h2 id="模拟行为"><a href="#模拟行为" class="headerlink" title="模拟行为"></a>模拟行为</h2><ul>
+<li>（边界条件非常多，坚持左闭右开原则）坚持<strong>循环不变量原则；</strong></li>
+<li>对于边界调节超多，一波接着一波的判断，找边界，拆了东墙补西墙，好不容易运行通过了，代码写的十分冗余，毫无章法的题目，其实<strong>真正解决题目的代码都是简洁的，或者有原则性的</strong>。</li>
 </ul>
 
       </div>
